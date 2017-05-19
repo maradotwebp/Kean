@@ -10,4 +10,6 @@ var bot = new Eris.CommandClient(process.argv[2], {}, {
 bot.on("ready", () => { console.log("Ready!"); });
 bot.connect();
 
+// EINFACHER COMMAND
+
 // BOT COMMAND REGISTER
