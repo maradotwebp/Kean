@@ -18,5 +18,18 @@ var prefix = "$$";
 
 client.on('ready', () => { console.log('INFO -- '+name+' ready.'); });
 
+//Checks if this message was sent on server, and server is available.
+function checkOnServer(message) {
+	var guild = message.guild;
+	if(!(guild instanceof Discord.Guild)) {
+		message.channel.send("I'm sorry, you are not on a Server!");
+		return false;
+	}
+	if(!guild.available) {
+		message.channel.send("Sorry, the guild seems to be unavailable!");
+		return false;
+	}
+	return true;
+}
 //LOGIN -- Always at end of file
 client.login(process.argv[2]);
