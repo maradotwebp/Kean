@@ -15,7 +15,6 @@ var pre = "$$";
 //Announcement not announcing parameters.
 //Change help for annoucement.
 //Change general help.
-//Change format of the announcement.
 
 client.on('ready', () => { console.log('INFO -- '+name+' ready.'); });
 
@@ -57,7 +56,7 @@ function doAnnouncement(message) {
 	for(var chan of message.guild.channels) {
 		var text = message.content.replace(pre+"announce ", "");
 		if(chan[1].type=="text") {
-			chan[1].send("ANNOUCEMENT: "+text);
+			chan[1].send(":bell: "+text+" :bell:");
 		}
 	}
 }
@@ -68,6 +67,7 @@ function checkOnServer(message) {
 	if(!(guild instanceof Discord.Guild)) {
 		message.channel.send("I'm sorry, you are not on a Server!");
 		return false;
+
 	}
 	if(!guild.available) {
 		message.channel.send("Sorry, the guild seems to be unavailable!");
