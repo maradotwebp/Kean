@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 var Command = require('./command.js');
 const client = new Discord.Client();
-var name = "ndBot";
+var name = "Kean";
 var pre = "$$";
 
 // -- GUIDE TO LOG-MESSAGES --
@@ -13,9 +13,6 @@ var pre = "$$";
 
 // -- TODO --
 //Permission checking not yet implemented.
-//Announcement not announcing parameters.
-//Change help for annoucement.
-//Change general help.
 
 //On start, logs and sets game to help info.
 client.on('ready', () => {
