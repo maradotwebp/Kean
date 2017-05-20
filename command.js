@@ -1,8 +1,9 @@
 var Help = require('./c_help.js');
-var Announce = require('./c_announce.js')
+var Announce = require('./c_announce.js');
+var Stats = require('./c_stats.js');
 
 //Splits the command and delegates to further methods.
-function commandDelegate(message, pre, Discord) {
+function commandDelegate(message, pre, Discord, client) {
 	if(!checkOnServer(message, Discord)) return;
 	var arg = message.content.split(" ");
 	var command = arg[0].replace(pre, "");
@@ -11,6 +12,9 @@ function commandDelegate(message, pre, Discord) {
 	switch(command) {
 		case "help":
 			Help.showGeneralHelp(message.channel);
+			break;
+		case "stats":
+			Stats.sendStats(message.channel, Discord, client);
 			break;
 		case "announce":
 			if(arg.length>0) Announce.doAnnouncement(message, arg.join(" "));
