@@ -4,12 +4,13 @@
 function showGeneralHelp(message, Discord, client) {
 	const embed = new Discord.RichEmbed()
 		.setTitle(':tools:    -- Kean General Help --   :tools:')
-		.setColor(0x00AE86)
+		.setColor([188, 123, 55])
 		.setDescription("The Bot for everything and everything else!")
 		.setFooter('Thank you for using KeanBot!')
 		.setThumbnail(client.user.avatarURL)
 		//Help Messages
-		.addField(':loudspeaker: $$announce', 'Writes a message to every channel.');
+		.addField(':loudspeaker: $$announce <Message>', 'Writes a message to every channel.')
+		.addField(':busts_in_silhouette: $$stats', 'Displays the stats of the user.');
 	message.channel.send({embed});
 }
 
