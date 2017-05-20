@@ -9,6 +9,13 @@ var prefix = "$$";
 //ERROR -- <Message>       Exceptions and errors with medium impact
 //CRITICAL -- <Message>    for critical Errors that could break the bot
 
+// -- TODO --
+//Permission checking not yet implemented.
+//Announcement not announcing parameters.
+//Change help for annoucement.
+//Change general help.
+//Announcement not working, but no error in console.
+
 client.on('ready', () => { console.log('INFO -- '+name+' ready.'); });
 
 //LOGIN -- Always at end of file
