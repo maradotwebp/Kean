@@ -15,7 +15,7 @@ var pre = "$$";
 //Announcement not announcing parameters.
 //Change help for annoucement.
 //Change general help.
-//Announcement not working, but no error in console.
+//Change format of the announcement.
 
 client.on('ready', () => { console.log('INFO -- '+name+' ready.'); });
 
@@ -55,9 +55,9 @@ function doAnnouncement(message) {
 	if(!checkOnServer(message)) return;
 
 	for(var chan of message.guild.channels) {
-		console.log("Channels: " + chan.type);
-		if(chan.type=="text") {
-			chan.send("ANNOUCEMENT: <Missing Text>");
+		var text = message.content.replace(pre+"announce ", "");
+		if(chan[1].type=="text") {
+			chan[1].send("ANNOUCEMENT: "+text);
 		}
 	}
 }
