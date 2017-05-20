@@ -9,9 +9,10 @@ function commandDelegate(message, pre, Discord, client) {
 	var command = arg[0].replace(pre, "");
 	arg.shift();
 
+	//COMMAND SWITCH
 	switch(command) {
 		case "help":
-			Help.showGeneralHelp(message.channel);
+			Help.showGeneralHelp(message, Discord, client);
 			break;
 		case "stats":
 			Stats.sendStats(message.channel, Discord, client);
