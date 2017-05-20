@@ -23,15 +23,17 @@ client.on('message', message => {
 	var command = arr[0];
 
 	//Handler for GENERAL HELP
-	if(command == pre+"help") {
+	if(command == pre+"help" || command == pre) {
 		showGeneralHelp(message);
 		return;
 	}
-
 	//Handler for ANNOUNCE
-	if(command == pre+"announce") {
+	else if(command == pre+"announce") {
 		if(arr.length==1) showHelpForAnnouncement(message);
 		if(arr.length>1)  doAnnouncement(message);
+	}
+	else if(command.startsWith(pre)) {
+		notSupported(message);
 	}
 });
 
@@ -41,12 +43,15 @@ client.on('message', message => {
 
 //Shows the general help for the bot.
 function showGeneralHelp(message) {
-	message.channel.send("GENERAL HELP");
+	message.channel.send(":no_entry: -- **Moderation Tools**");
+	message.channel.send("- $$announce");
 }
 
 //Shows the help for the announcement
 function showHelpForAnnouncement(message) {
-	message.channel.send("ANNOUNCEMENT HELP");
+	message.channel.send(":loudspeaker: -- **$$announce** -- :loudspeaker:");
+	message.channel.send("**Usage:** $$announce <Text>");
+	message.channel.send("**Desc:** Writes a text to every Channel in the Guild.");
 }
 
 //Does the announcement.
@@ -56,7 +61,7 @@ function doAnnouncement(message) {
 	for(var chan of message.guild.channels) {
 		var text = message.content.replace(pre+"announce ", "");
 		if(chan[1].type=="text") {
-			chan[1].send(":bell: "+text+" :bell:");
+			chan[1].send(":loudspeaker: "+text+" :loudspeaker:");
 		}
 	}
 }
@@ -74,6 +79,11 @@ function checkOnServer(message) {
 		return false;
 	}
 	return true;
+}
+
+function notSupported(message) {
+	message.channel.send(":confused: I'm sorry, I didn't get that.");
+	message.channel.send("Use **$$help** if you want some information.");
 }
 
 //LOGIN -- Always at end of file
