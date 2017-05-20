@@ -27,7 +27,7 @@ client.on('ready', () => {
 client.on('message', message => {
 	if(message.author.bot) return;
 	if(message.content.startsWith("$$")) {
-		Command.commandDelegate(message,pre, Discord);
+		Command.commandDelegate(message,pre, Discord, client);
 	}
 });
 
