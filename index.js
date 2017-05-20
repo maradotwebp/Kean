@@ -49,7 +49,7 @@ client.on('message', message => {
 //Shows the general help for the bot.
 function showGeneralHelp(message) {
 	message.channel.send(":no_entry: -- **Moderation Tools**");
-	message.channel.send("- $$announce");
+	message.channel.send(" $$announce");
 }
 
 //Shows the help for the announcement
