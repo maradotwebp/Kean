@@ -7,4 +7,5 @@ function doAnnouncement(message, text) {
 	}
 }
 
+//MODULE EXPORT -- DO NOT MODIFY
 module.exports.doAnnouncement = doAnnouncement;

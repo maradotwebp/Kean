@@ -1,3 +1,4 @@
+//Sends the stats of the bot to the channel.
 function sendStats(channel, Discord, client) {
     const embed = new Discord.RichEmbed()
         .setTitle('Kean Statistics')
@@ -11,4 +12,5 @@ function sendStats(channel, Discord, client) {
     channel.send({embed});
 }
 
+//MODULE EXPORT -- DO NOT MODIFY
 module.exports.sendStats = sendStats;
