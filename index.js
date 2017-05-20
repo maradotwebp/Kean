@@ -16,7 +16,12 @@ var pre = "$$";
 //Change help for annoucement.
 //Change general help.
 
-client.on('ready', () => { console.log('INFO -- '+name+' ready.'); });
+client.on('ready', () => {
+	console.log('INFO -- '+name+' ready.');
+	client.user.setGame("with $$help!");
+});
+
+
 
 client.on('message', message => {
 	var arr = message.content.split(" ");
