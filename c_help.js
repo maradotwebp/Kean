@@ -19,5 +19,6 @@ function notSupported(channel) {
 	channel.send(":confused: I'm sorry, I didn't get that. Try $$help.");
 }
 
+//MODULE EXPORT -- DO NOT MODIFY
 module.exports.showGeneralHelp = showGeneralHelp;
 module.exports.notSupported = notSupported;

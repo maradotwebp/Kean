@@ -42,4 +42,5 @@ function checkOnServer(message, Discord) {
 	return true;
 }
 
+//MODULE EXPORT -- DO NOT MODIFY
 module.exports.commandDelegate = commandDelegate;
