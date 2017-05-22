@@ -4,6 +4,7 @@ const client = new Discord.Client();
 var name = "Kean";
 var pre = "$$";
 
+
 // -- GUIDE TO LOG-MESSAGES --
 //INFO -- <Message>        for info and general statements
 //WARNING -- <Message>     for warnings that have little to no impact
@@ -17,14 +18,14 @@ var pre = "$$";
 //On start, logs and sets game to help info.
 client.on('ready', () => {
 	console.log('INFO -- '+name+' ready.');
-	client.user.setGame("with $$help!");
+	client.user.setGame("with "+pre+"help!");
 });
 
 //Delegates the command to command.js
 client.on('message', message => {
 	if(message.author.bot) return;
-	if(message.content.startsWith("$$")) {
-		Command.commandDelegate(message,pre, Discord, client);
+	if(message.content.startsWith(pre)) {
+		Command.commandDelegate(client, message, pre, name);
 	}
 });
 
