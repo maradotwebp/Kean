@@ -1,17 +1,18 @@
-//Shows the general help for the bot.
+const Discord = require('discord.js');
 
-//Displays general help
-function showGeneralHelp(message, Discord, client) {
+
+//Displays general help for the bot.
+function showGeneralHelp(client, channel, name) {
 	const embed = new Discord.RichEmbed()
-		.setTitle(':tools:    -- Kean General Help --   :tools:')
+		.setTitle(':tools:    -- '+name+'Bot General Help --   :tools:')
 		.setColor([188, 123, 55])
 		.setDescription("The Bot for everything and everything else!")
-		.setFooter('Thank you for using KeanBot!')
+		.setFooter('Thank you for using '+name+'Bot!')
 		.setThumbnail(client.user.avatarURL)
 		//Help Messages
 		.addField(':loudspeaker: $$announce <Message>', 'Writes a message to every channel.')
 		.addField(':busts_in_silhouette: $$stats', 'Displays the stats of the user.');
-	message.channel.send({embed});
+	channel.send({embed});
 }
 
 //Shows the "Not supported" help.

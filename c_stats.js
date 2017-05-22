@@ -1,7 +1,10 @@
+const Discord = require('discord.js');
+
+
 //Sends the stats of the bot to the channel.
-function sendStats(channel, Discord, client) {
+function showStats(client, channel, name) {
     const embed = new Discord.RichEmbed()
-        .setTitle('Kean Statistics')
+        .setTitle(name+' Statistics')
         .setColor([188, 123, 55])
         .addField('Mem Usage', `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true)
         .addField('Users', `${client.users.size}`, true)
