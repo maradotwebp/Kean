@@ -1,10 +1,12 @@
 var Help = require('./c_help.js');
 var Announce = require('./c_announce.js');
 var Stats = require('./c_stats.js');
+const Discord = require('discord.js');
+
 
 //Splits the command and delegates to further methods.
-function commandDelegate(message, pre, Discord, client) {
-	if(!checkOnServer(message, Discord)) return;
+function commandDelegate(client, message, pre, name) {
+	if(!checkOnServer(message)) return;
 	var arg = message.content.split(" ");
 	var command = arg[0].replace(pre, "");
 	arg.shift();
@@ -12,10 +14,10 @@ function commandDelegate(message, pre, Discord, client) {
 	//COMMAND SWITCH
 	switch(command) {
 		case "help":
-			Help.showGeneralHelp(message, Discord, client);
+			Help.showGeneralHelp(client, message.channel, name);
 			break;
 		case "stats":
-			Stats.sendStats(message.channel, Discord, client);
+			Stats.showStats(client, message.channel, name);
 			break;
 		case "announce":
 			if(arg.length>0) Announce.doAnnouncement(message, arg.join(" "));
@@ -28,7 +30,7 @@ function commandDelegate(message, pre, Discord, client) {
 }
 
 //Checks if the command is done on Server.
-function checkOnServer(message, Discord) {
+function checkOnServer(message) {
 	var guild = message.guild;
 	if(!(guild instanceof Discord.Guild)) {
 		message.channel.send("I'm sorry, you are not on a Server!");
