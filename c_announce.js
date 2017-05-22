@@ -1,8 +1,14 @@
+const Discord = require('discord.js');
+
+
 //Does an announcement to all text based channels.
 function doAnnouncement(channel, text) {
 	for(var chan of channel.guild.channels) {
 		if(chan[1].type=="text") {
-			chan[1].send(":loudspeaker: "+text+" :loudspeaker:");
+			const embed = new Discord.RichEmbed()
+				.setTitle(":loudspeaker: -- "+text+"-- :loudspeaker:")
+				.setColor([188, 123, 55]);
+			chan[1].send({embed});
 		}
 	}
 }

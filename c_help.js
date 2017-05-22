@@ -10,14 +10,17 @@ function showGeneralHelp(client, channel, name) {
 		.setFooter('Thank you for using '+name+'Bot!')
 		.setThumbnail(client.user.avatarURL)
 		//Help Messages
-		.addField(':loudspeaker: $$announce <Message>', 'Writes a message to every channel.')
-		.addField(':busts_in_silhouette: $$stats', 'Displays the stats of the bot.');
+		.addField(':loudspeaker: $$announce <Message>', 'Write a message to every channel.')
+		.addField(':satellite: $$stats', 'Display the stats of the bot.');
 	channel.send({embed});
 }
 
 //Shows the "Not supported" help.
 function notSupported(channel) {
-	channel.send(":confused: I'm sorry, I didn't get that. Try $$help.");
+	const embed = new Discord.RichEmbed()
+		.setDescription(":confused: I'm sorry, I didn't get that. Try $$help.")
+		.setColor([188, 123, 55]);
+	channel.send({embed});
 }
 
 //MODULE EXPORT -- DO NOT MODIFY
