@@ -23,9 +23,6 @@ function commandDelegate(client, message, pre, name) {
 			if(arg.length>0) Announce.doAnnouncement(message, arg.join(" "));
 			if(arg.length==0) Help.notSupported(message.channel);
 			break;
-		case "userinfo":
-			Stats.userinfo(message, Discord, client);
-			break;
 		default:
 			Help.notSupported(message.channel);
 			break;
