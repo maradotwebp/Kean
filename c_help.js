@@ -11,7 +11,7 @@ function showGeneralHelp(client, channel, name) {
 		.setThumbnail(client.user.avatarURL)
 		//Help Messages
 		.addField(':loudspeaker: $$announce <Message>', 'Writes a message to every channel.')
-		.addField(':busts_in_silhouette: $$stats', 'Displays the stats of the user.');
+		.addField(':busts_in_silhouette: $$stats', 'Displays the stats of the bot.');
 	channel.send({embed});
 }
 

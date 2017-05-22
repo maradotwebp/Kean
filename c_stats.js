@@ -16,4 +16,4 @@ function showStats(client, channel, name) {
 }
 
 //MODULE EXPORT -- DO NOT MODIFY
-module.exports.sendStats = sendStats;
+module.exports.showStats = showStats;
