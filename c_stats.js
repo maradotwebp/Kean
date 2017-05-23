@@ -14,20 +14,24 @@ function showStats(client, channel, name) {
         .addField('Discord.js', `v${Discord.version}`, true);
     channel.send({embed});
 }
-function userinfo(client, channel){
-  const embed = new Discord.RichEmbed() 
-        .setTitle('Kean Statistics') 
-        .setColor([188, 123, 55]) 
-    .addField('Username',client.username, true) 
-        .addField('Joined', client.createdAt,true); 
-    .addField('Avatar', client.displayAvatarURL,true); 
+
+//Displays the stats of the user.
+function userinfo(author, channel, name){
+    const embed = new Discord.RichEmbed() 
+        .setTitle(name+' Statistics') 
+        .setColor([188, 123, 55])
+        .addField('Username', author.username, true) 
+        .addField('Joined', author.createdAt, true)
+        .setThumbnail(author.displayAvatarURL)
+        .addField('Avatar', author.displayAvatarURL, true); 
     /*  
     .createdAt -wann der User erstellt wurde 
     .displayAvatarURL -gibt den Avatar mit Url zurück 
     .username -string vom User 
     */ 
     channel.send({embed}); 
-} 
+}
+
 //MODULE EXPORT -- DO NOT MODIFY
 module.exports.showStats = showStats;
 module.exports.userinfo = userinfo;

@@ -24,7 +24,7 @@ function commandDelegate(client, message, pre, name) {
 			if(arg.length==0) Help.notSupported(message.channel);
 			break;
 		case "userinfo":
-			Stats.userinfo(client, message.channel);
+			Stats.userinfo(message.author, message.channel, name);
 			break;
 		default:
 			Help.notSupported(message.channel);
