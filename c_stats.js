@@ -25,11 +25,11 @@ function userInfo(author, channel, name){
         .setDescription(author.username + " is in "+info.status+" mode.")
         .setColor([188, 123, 55])
         .setThumbnail(author.displayAvatarURL)
-        .addField('Joined Discord on', author.createdAt, true);
+        .addField('Joined Discord on', author.createdAt.toDateString(), true);
 		
     var guildmember = channel.guild.fetchMember(author).then(function(member) {
-        embed.addField('Joined '+member.guild.name+' on', member.joinedAt, true);
-        embed.addField('Avatar', author.displayAvatarURL, true);
+        embed.addField('Joined '+member.guild.name+' on', member.joinedAt.toDateString(),true);
+        embed.addField('Avatar', author.displayAvatarURL);
 		embed.setFooter(("UserID: "+author.id));
         channel.send({embed});
 		
