@@ -20,7 +20,7 @@ function commandDelegate(bot, message, pre, name) {
 			break;
 		case "announce":
 			if(!checkOnServer(message)) return;
-			if(arg.length>0) Announce.doAnnouncement(channel.guild, arg.join(" "));
+			if(arg.length>0) Announce.doAnnouncement(message.channel.guild, arg.join(" "));
 			if(arg.length==0) Help.notSupported(message.channel);
 			break;
 		case "userinfo":

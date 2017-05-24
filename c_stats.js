@@ -5,6 +5,7 @@ const Discord = require('discord.js');
 function showStats(bot, channel, name) {
     const embed = new Discord.RichEmbed()
         .setTitle(name+' Statistics')
+        .setDescription("Warning: Information might be slightly inaccurate.")
         .setColor([188, 123, 55])
         .addField('Mem Usage', `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true)
         .addField('Users', `${bot.users.size}`, true)
