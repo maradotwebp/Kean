@@ -19,19 +19,19 @@ function showStats(bot, channel, name) {
 //Displays the stats of the user.
 function userInfo(author, channel, name){
     var info = author.presence;
+
     const embed = new Discord.RichEmbed() 
-        .setTitle(author.username)
+        .setTitle(":grinning: "+author.username)
         .setDescription(author.username + " is in "+info.status+" mode.")
         .setColor([188, 123, 55])
         .setThumbnail(author.displayAvatarURL)
-        .addField('Joined Discord on', author.createdAt, true)
-        .addField('Avatar', author.displayAvatarURL, true); 
-    /*  
-    .createdAt -wann der User erstellt wurde 
-    .displayAvatarURL -gibt den Avatar mit Url zurück 
-    .username -string vom User 
-    */ 
-    channel.send({embed}); 
+        .addField('Joined Discord on', author.createdAt, true);
+
+    var guildmember = channel.guild.fetchMember(author).then(function(member) {
+        embed.addField('Joined '+member.guild.name+' on', member.joinedAt, true);
+        embed.addField('Avatar', author.displayAvatarURL, true); 
+        channel.send({embed}); 
+    });
 }
 
 //MODULE EXPORT -- DO NOT MODIFY

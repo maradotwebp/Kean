@@ -12,7 +12,7 @@ function showGeneralHelp(bot, user, name, pre) {
 		//Help Messages
 		.addField(':loudspeaker: '+pre+'announce <Message>', 'Write a message to every channel.')
 		.addField(':satellite: '+pre+'stats', 'Display the stats of the bot.')
-		.addField(':smiley_cat: '+pre+'userinfo', 'Display info about the command executor.');
+		.addField(':grinning: '+pre+'userinfo', 'Display info about the command executor.');
 
 	user.send({embed});
 }
