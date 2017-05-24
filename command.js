@@ -6,7 +6,6 @@ const Discord = require('discord.js');
 
 //Splits the command and delegates to further methods.
 function commandDelegate(bot, message, pre, name) {
-	if(!checkOnServer(message)) return;
 	var arg = message.content.split(" ");
 	var command = arg[0].replace(pre, "");
 	arg.shift();
@@ -20,6 +19,7 @@ function commandDelegate(bot, message, pre, name) {
 			Stats.showStats(bot, message.channel, name);
 			break;
 		case "announce":
+			if(!checkOnServer(message)) return;
 			if(arg.length>0) Announce.doAnnouncement(channel.guild, arg.join(" "));
 			if(arg.length==0) Help.notSupported(message.channel);
 			break;
