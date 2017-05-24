@@ -14,20 +14,20 @@ function commandDelegate(bot, message, pre, name) {
 	//COMMAND SWITCH
 	switch(command) {
 		case "help":
-			Help.showGeneralHelp(bot, message.channel, name);
+			Help.showGeneralHelp(bot, message.channel, name, pre);
 			break;
 		case "stats":
 			Stats.showStats(bot, message.channel, name);
 			break;
 		case "announce":
-			if(arg.length>0) Announce.doAnnouncement(message, arg.join(" "));
+			if(arg.length>0) Announce.doAnnouncement(channel.guild, arg.join(" "));
 			if(arg.length==0) Help.notSupported(message.channel);
 			break;
 		case "userinfo":
-			Stats.userinfo(message.author, message.channel, name);
+			Stats.userInfo(message.author, message.channel, name);
 			break;
 		default:
-			Help.notSupported(message.channel);
+			Help.notSupported(message.channel, pre);
 			break;
 	}
 }
