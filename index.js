@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 var Command = require('./command.js');
-const client = new Discord.Client();
+const bot = new Discord.Client();
 var name = "Kean";
 var pre = "$$";
 
@@ -16,18 +16,18 @@ var pre = "$$";
 //Permission checking not yet implemented.
 
 //On start, logs and sets game to help info.
-client.on('ready', () => {
+bot.on('ready', () => {
 	console.log('INFO -- '+name+' ready.');
-	client.user.setGame("with "+pre+"help!");
+	bot.user.setGame("with "+pre+"help!");
 });
 
 //Delegates the command to command.js
-client.on('message', message => {
+bot.on('message', message => {
 	if(message.author.bot) return;
 	if(message.content.startsWith(pre)) {
-		Command.commandDelegate(client, message, pre, name);
+		Command.commandDelegate(bot, message, pre, name);
 	}
 });
 
 //LOGIN -- Always at end of file
-client.login(process.argv[2]);
+bot.login(process.argv[2]);
