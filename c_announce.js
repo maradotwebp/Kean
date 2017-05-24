@@ -2,8 +2,8 @@ const Discord = require('discord.js');
 
 
 //Does an announcement to all text based channels.
-function doAnnouncement(channel, text) {
-	for(var chan of channel.guild.channels) {
+function doAnnouncement(guild, text) {
+	for(var chan of guild.channels) {
 		if(chan[1].type=="text") {
 			const embed = new Discord.RichEmbed()
 				.setTitle(":loudspeaker: -- "+text+"-- :loudspeaker:")
