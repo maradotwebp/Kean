@@ -5,7 +5,7 @@ const Discord = require('discord.js');
 
 
 //Splits the command and delegates to further methods.
-function commandDelegate(client, message, pre, name) {
+function commandDelegate(bot, message, pre, name) {
 	if(!checkOnServer(message)) return;
 	var arg = message.content.split(" ");
 	var command = arg[0].replace(pre, "");
@@ -14,10 +14,10 @@ function commandDelegate(client, message, pre, name) {
 	//COMMAND SWITCH
 	switch(command) {
 		case "help":
-			Help.showGeneralHelp(client, message.channel, name);
+			Help.showGeneralHelp(bot, message.channel, name);
 			break;
 		case "stats":
-			Stats.showStats(client, message.channel, name);
+			Stats.showStats(bot, message.channel, name);
 			break;
 		case "announce":
 			if(arg.length>0) Announce.doAnnouncement(message, arg.join(" "));
