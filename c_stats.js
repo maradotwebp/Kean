@@ -16,7 +16,7 @@ function showStats(bot, channel, name) {
 }
 
 //Displays the stats of the user.
-function userinfo(author, channel, name){
+function userInfo(author, channel, name){
     const embed = new Discord.RichEmbed() 
         .setTitle(name+' Statistics') 
         .setColor([188, 123, 55])
@@ -34,4 +34,4 @@ function userinfo(author, channel, name){
 
 //MODULE EXPORT -- DO NOT MODIFY
 module.exports.showStats = showStats;
-module.exports.userinfo = userinfo;
+module.exports.userInfo = userInfo;
