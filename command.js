@@ -13,7 +13,7 @@ function commandDelegate(bot, message, pre, name) {
 	//COMMAND SWITCH
 	switch(command) {
 		case "help":
-			Help.showGeneralHelp(bot, message.channel, name, pre);
+			Help.showGeneralHelp(bot, message.author, name, pre);
 			break;
 		case "stats":
 			Stats.showStats(bot, message.channel, name);

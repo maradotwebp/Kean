@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 
 //Displays general help for the bot.
-function showGeneralHelp(bot, channel, name, pre) {
+function showGeneralHelp(bot, user, name, pre) {
 	const embed = new Discord.RichEmbed()
 		.setTitle(':tools:    -- '+name+'Bot General Help --   :tools:')
 		.setColor([188, 123, 55])
@@ -12,7 +12,8 @@ function showGeneralHelp(bot, channel, name, pre) {
 		//Help Messages
 		.addField(':loudspeaker: '+pre+'announce <Message>', 'Write a message to every channel.')
 		.addField(':satellite: '+pre+'stats', 'Display the stats of the bot.');
-	channel.send({embed});
+
+	user.send({embed});
 }
 
 //Shows the "Not supported" help.
