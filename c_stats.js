@@ -21,16 +21,18 @@ function userInfo(author, channel, name){
     var info = author.presence;
 
     const embed = new Discord.RichEmbed() 
-        .setTitle(":grinning: "+author.username)
+        .setTitle(":grinning: "+author.tag)
         .setDescription(author.username + " is in "+info.status+" mode.")
         .setColor([188, 123, 55])
         .setThumbnail(author.displayAvatarURL)
         .addField('Joined Discord on', author.createdAt, true);
-
+		
     var guildmember = channel.guild.fetchMember(author).then(function(member) {
         embed.addField('Joined '+member.guild.name+' on', member.joinedAt, true);
-        embed.addField('Avatar', author.displayAvatarURL, true); 
-        channel.send({embed}); 
+        embed.addField('Avatar', author.displayAvatarURL, true);
+		embed.setFooter(("UserID: "+author.id));
+        channel.send({embed});
+		
     });
 }
 
