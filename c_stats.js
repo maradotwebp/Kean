@@ -18,12 +18,13 @@ function showStats(bot, channel, name) {
 
 //Displays the stats of the user.
 function userInfo(author, channel, name){
+    var info = author.presence;
     const embed = new Discord.RichEmbed() 
-        .setTitle(name+' Statistics') 
+        .setTitle(author.username)
+        .setDescription(author.username + " is in "+info.status+" mode.")
         .setColor([188, 123, 55])
-        .addField('Username', author.username, true) 
-        .addField('Joined', author.createdAt, true)
         .setThumbnail(author.displayAvatarURL)
+        .addField('Joined Discord on', author.createdAt, true)
         .addField('Avatar', author.displayAvatarURL, true); 
     /*  
     .createdAt -wann der User erstellt wurde 
