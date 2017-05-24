@@ -37,7 +37,7 @@ function commandDelegate(bot, message, pre, name) {
 			text = "";
 			message.reply(text);
 			Role.addRole(text, message.guild);
-		}else{
+		} else {
 			message.reply("Sorry! You don't have the permission to use this command!");
 		}
 		break;

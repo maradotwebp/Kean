@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 
-//Does an announcement to all text based channels.
+//Adds a role to a specific member.
 function addRole(name, guild) {
 	//.setPermissions(permissions)
 	//.setColor
