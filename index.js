@@ -1,8 +1,9 @@
 const Discord = require('discord.js');
 var Command = require('./command.js');
 const bot = new Discord.Client();
-var name = "Kean";
+var name = "Rem";
 var pre = "$$";
+
 
 
 // -- GUIDE TO LOG-MESSAGES --
@@ -19,6 +20,16 @@ var pre = "$$";
 bot.on('ready', () => {
 	console.log('INFO -- '+name+' ready.');
 	bot.user.setGame("with "+pre+"help!");
+});
+
+// Create an event listener for new guild members
+bot.on('guildMemberAdd', member => {
+const embed = new Discord.RichEmbed() 
+		.setTitle(":flushed: Welcome to the server... ")
+        .setDescription('May I take your order, '+member.user.username+'?')
+        .setThumbnail(member.user.displayAvatarURL)
+		.setFooter(("UserID: "+member.id));
+		member.guild.defaultChannel.send({embed});
 });
 
 //Delegates the command to command.js
