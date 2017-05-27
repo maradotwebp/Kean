@@ -32,7 +32,6 @@ function userInfo(author, channel, name){
         embed.addField('Avatar', author.displayAvatarURL);
 		embed.setFooter(("UserID: "+author.id));
         channel.send({embed});
-		
     });
 }
 
