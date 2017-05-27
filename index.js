@@ -24,12 +24,7 @@ bot.on('ready', () => {
 
 // Create an event listener for new guild members
 bot.on('guildMemberAdd', member => {
-const embed = new Discord.RichEmbed() 
-		.setTitle(":flushed: Welcome to the server... ")
-        .setDescription('May I take your order, <@'+member.id+'>?')
-        .setThumbnail(member.user.displayAvatarURL)
-		.setFooter(("UserID: "+member.id));
-		member.guild.defaultChannel.send({embed});
+	Command.onNewMember(member);
 });
 
 //Delegates the command to command.js

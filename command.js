@@ -47,6 +47,16 @@ function commandDelegate(bot, message, pre, name) {
 	}
 }
 
+//Triggers when there is a new member in the guild.
+function onNewMember(member) {
+	const embed = new Discord.RichEmbed() 
+		.setTitle(":flushed: Welcome to the server... ")
+        .setDescription('May I take your order, <@'+member.id+'>?')
+        .setThumbnail(member.user.displayAvatarURL)
+		.setFooter(("UserID: "+member.id));
+	member.guild.defaultChannel.send({embed});
+}
+
 //Checks if the command is done on Server.
 function checkOnServer(message) {
 	var guild = message.guild;
