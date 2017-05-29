@@ -1,20 +1,6 @@
 const Discord = require('discord.js');
 var Command = require('./command.js');
 const bot = new Discord.Client();
-var name = "Rem";
-var pre = "$$";
-
-
-
-// -- GUIDE TO LOG-MESSAGES --
-//INFO -- <Message>        for info and general statements
-//WARNING -- <Message>     for warnings that have little to no impact
-//ERROR -- <Message>       Exceptions and errors with medium impact
-//CRITICAL -- <Message>    for critical Errors that could break the bot
-
-
-// -- TODO --
-//Permission checking not yet implemented.
 
 //On start, logs and sets game to help info.
 bot.on('ready', () => {
