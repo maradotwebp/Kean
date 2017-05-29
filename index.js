@@ -64,10 +64,11 @@ bot.on('message', message => {
     	let commandFile = require(`./commands/${command}.js`);
     	commandFile.run(bot, message, args);
   	} catch (err) {
+  		console.error(err);
   		const embed = new Discord.RichEmbed()
 			.setDescription(`:confused: I'm sorry, I didn't get that. Try ${config.prefix}help.`)
 			.setColor([188, 123, 55]);
-		channel.send({embed});
+		message.channel.send({embed});
   	}
 });
 

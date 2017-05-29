@@ -3,5 +3,5 @@ exports.run = (bot, message, args) => {
 }
 
 exports.help = () => {
-	return "Sends a message to the bot, verifying if he is online."
+	return [":ping_pong:", "ping", "Sends a message to the bot, verifying if he is online."];
 }
