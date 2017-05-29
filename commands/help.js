@@ -1,6 +1,3 @@
-const fs = require('fs');
-const Discord = require('discord.js');
-
 /*
 // ----------------
 // HELP PAGE
@@ -11,6 +8,8 @@ const Discord = require('discord.js');
 */
 
 exports.run = (bot, message, args) => {
+	let fs = require('fs');
+	let Discord = require('discord.js');
 	let config = require('../config/config.json');
 	var embed = new Discord.RichEmbed()
 		.setTitle(`:tools:    -- ${config.name}Bot General Help --   :tools:`)

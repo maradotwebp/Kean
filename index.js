@@ -17,15 +17,22 @@ let config = require('./config/config.json');
 // INFO FOR THE TEAM BELOW
 // Please. for fucks sake. Change nothing in this file.
 
+
 // ----------------
 // TO ADD A NEW COMMAND
 // ----------------
 //	1. Go to the /commands/ folder and create a file called {name}.js (Replace "name" with your command)
 //	2. Add this code to the file:
-		exports.run = (bot) => {
+		exports.run = (bot, message, args) => {
 			//Your code here
 	    }
 //	3. Write your code!
+//	4. Don't forget to add the documentation. Copy this code and change it:
+		exports.help = () => {
+			return ["EMOJI", "NAME WITH PARAMETERS", "DESCRIPTION"];
+		}
+
+
 
 // ----------------
 // TO ADD A NEW EVENT
