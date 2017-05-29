@@ -1,14 +1,15 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 
-
 /*
 // ----------------
 // HELP PAGE
 // ----------------
 // DON'T EDIT THIS CODE.
-// To use the help page, 
+// To use the help page, code the method .help() as seen below,
+// and return an array with icon, name, and description.
 */
+
 exports.run = (bot, message, args) => {
 	let config = require('../config/config.json');
 	var embed = new Discord.RichEmbed()
