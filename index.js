@@ -19,7 +19,7 @@ let config = require('./config/config.json');
 
 
 // ----------------
-// TO ADD A NEW COMMAND
+// HOW TO ADD A NEW COMMAND
 // ----------------
 //	1. Go to the /commands/ folder and create a file called {name}.js (Replace "name" with your command)
 //	2. Add this code to the file:
@@ -33,9 +33,8 @@ let config = require('./config/config.json');
 		}
 
 
-
 // ----------------
-// TO ADD A NEW EVENT
+// HOW TO ADD A NEW EVENT
 // ----------------
 //	1. Go to the /events/ folder and create a file called {name}.js (Replace "name" with your command)
 //	2. Add this code to the file:
