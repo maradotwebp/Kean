@@ -23,13 +23,17 @@ exports.run = (bot, message, args) => {
   		files.forEach(file => {
     		let commandFunction = require(`../commands/${file}`);
     		let commandName = file.split('.')[0];
-    		let array = commandFunction.help();
-    		let icon = array[0];
-    		let name = array[1];
-    		let desc = array[2];
-    		embed.addField(`${icon} ${config.prefix}${name}`, array[2]);
+    		try {
+    			let array = commandFunction.help();
+    			let icon = array[0];
+    			let name = array[1];
+    			let desc = array[2];
+    			embed.addField(`${icon} ${config.prefix}${name}`, array[2]);
+    		} catch(err) {
+    			embed.addField(`$commandName`, 'No Documentation set.');
+    		}
   		});
-  		message.author.send({embed}); 
+  		message.author.send({embed});
 	});
 }
 

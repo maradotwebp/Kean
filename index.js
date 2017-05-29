@@ -63,9 +63,7 @@ bot.on('message', message => {
 
 	let command = message.content.split(' ')[0];
   	command = command.slice(config.prefix.length);
-
   	let args = message.content.split(' ').slice(1);
-
   	try {
     	let commandFile = require(`./commands/${command}.js`);
     	commandFile.run(bot, message, args);
