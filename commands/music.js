@@ -1,6 +1,6 @@
 exports.run = (bot, message, args) => 
 {
-	let queue = {};
+	//let queue = {};
  
 	switch(args[0])
 	{
@@ -14,13 +14,15 @@ function play()
 	
 }
 
-function join(var message)
+function join(message)
 {
-	message.channel
+    console.log("joined function");
+	const channel = message.member.voiceChannel;
+	channel.join().then(connection => console.log('Connected!')).catch(console.error);
 }
 
 
 exports.help = () => 
 {
-	return [":musical_note:", "time", "Displays the time."];
+	return [":musical_note:", "music", "Music Player."];
 }
