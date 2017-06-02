@@ -6,6 +6,7 @@
   "dependencies": {
     "bufferutil": "^3.0.1",
     "discord.js": "^11.1.0",
+    "safe-eval": "^0.3.0",
     "ws": "^3.0.0"
   },
   "devDependencies": {},
