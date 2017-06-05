@@ -1,6 +1,7 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-let config = require('./config/config.json');
+const Config = require('./Config/Config.json');
+const Token = require('./Config/token.json');
 
 /*
 
@@ -59,10 +60,10 @@ fs.readdir('./events/', (err, files) => {
 //Delegate all commands to the appropiate file in the /commands/ folder.
 bot.on('message', message => {
 	if(message.author.bot) return; // Return if author is bot
-	if (!message.content.startsWith(config.prefix)) return; // Return if message doesn't start with prefix
+	if (!message.content.startsWith(Config.prefix)) return; // Return if message doesn't start with prefix
 
 	let command = message.content.split(' ')[0];
-  	command = command.slice(config.prefix.length);
+  	command = command.slice(Config.prefix.length);
   	let args = message.content.split(' ').slice(1);
   	try {
     	let commandFile = require(`./commands/${command}.js`);
@@ -71,7 +72,7 @@ bot.on('message', message => {
   		console.error(`-- WARN -- ${err.message}`);
   		const embed = new Discord.RichEmbed()
          .setAuthor(message.author.tag, message.author.displayAvatarURL)
-			   .setTitle(`:confused: >> I'm sorry, I didn't get that. Try ${config.prefix}help.`)
+			   .setTitle(`:confused: >> I'm sorry, I didn't get that. Try ${Config.prefix}help.`)
 			   .setColor([188, 123, 55]);
 		  message.channel.send({embed});
       message.delete();
@@ -79,4 +80,4 @@ bot.on('message', message => {
 });
 
 //LOGIN WITH BOT TOKEN
-bot.login(config.token);
+bot.login(Token.token);
