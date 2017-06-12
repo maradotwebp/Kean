@@ -1,4 +1,4 @@
-# Kean [![codebeat badge](https://codebeat.co/badges/a2c92d65-be52-4f08-bec4-4644087f6831)](https://codebeat.co/projects/github-com-froehlicha-kean-master)
+# Kean [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![codebeat badge](https://codebeat.co/badges/a2c92d65-be52-4f08-bec4-4644087f6831)](https://codebeat.co/projects/github-com-froehlicha-kean-master)
 A Discord bot, providing various features to users. Uses [Discord.js](https://github.com/hydrabolt/discord.js).
 
 ## Features
