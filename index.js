@@ -1,7 +1,7 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const Config = require('./Config/Config.json');
-const Token = require('./Config/token.json');
+const Token = require('./Config/Token.json');
 
 /*
 
@@ -79,5 +79,5 @@ bot.on('message', message => {
   	}
 });
 
-//LOGIN WITH BOT TOKEN
+//LOGIN WITH BOT Token
 bot.login(Token.token);
