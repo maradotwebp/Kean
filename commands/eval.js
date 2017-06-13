@@ -3,7 +3,7 @@ exports.run = (bot, message, args) => {
   let Discord = require('discord.js');
   if(args.length == 0) throw err;
   var id = message.author.id;
-  
+
   var safe;
   try {
     var output;
@@ -15,13 +15,13 @@ exports.run = (bot, message, args) => {
       safe = `User ${message.author.tag}`;
       var output = safeEval(args.join(" "));
     }
-    outputToChannel(message, output, safe);
+    outputToChannel(message, output, safe, Discord, args);
   } catch (err) {
-    outputToChannel(message, err.message, safe);
+    outputToChannel(message, err.message, safe, Discord, args);
   }
 }
 
-function outputToChannel(message, output, safe) {
+function outputToChannel(message, output, safe, Discord, args) {
   const embed = new Discord.RichEmbed()
     .setAuthor(safe, message.author.displayAvatarURL)
     .setColor([188, 123, 55])

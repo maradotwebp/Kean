@@ -72,7 +72,7 @@ bot.on('message', message => {
   	} catch (err) {
   		console.error(err);
   		const embed = new Discord.RichEmbed()
-			.setDescription(`:confused: I'm sorry, I didn't get that. Try ${config.prefix}help.`)
+			.setDescription(`:confused: I'm sorry, I didn't get that. Try ${Config.prefix}help.`)
 			.setColor([188, 123, 55]);
 		message.channel.send({embed});
   	}

@@ -1,6 +1,7 @@
 exports.run = (bot, message, args) => {
   let Discord = require('discord.js');
-  if(args[0] > 100) throw err;
+  if(args.length != 2) throw err("-- WARNING -- Arg.length wrong.");
+  if(args[0] > 100) throw err("-- WARNING -- Tried to delete more than 100 messages.");
   message.channel.fetchMessages({limit: args[0]})
   .then((collection) => {
     var count = 0;
