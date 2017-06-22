@@ -18,7 +18,7 @@ exports.run = (bot, message, args) =>
   {
       if(err) throw err;
 
-      message.channel.send(file);
+      message.channel.send({files: [file]});
   });
 
 }
