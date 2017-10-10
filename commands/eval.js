@@ -3,9 +3,10 @@ exports.run = (bot, message, args) => {
   let Discord = require('discord.js');
   if(args.length == 0) throw err;
   var id = message.author.id;
-  var output;
+
   var safe;
   try {
+    var output;
     if (id == 223321546872193024 || id == 232885456172220416 ||
     	id == 266249580058902528 || id == 310505417891381249) {
       safe = `Owner ${message.author.tag}`;
@@ -14,22 +15,20 @@ exports.run = (bot, message, args) => {
       safe = `User ${message.author.tag}`;
       var output = safeEval(args.join(" "));
     }
-    const embed = new Discord.RichEmbed()
-      .setAuthor(safe, message.author.displayAvatarURL)
-      .setColor([188, 123, 55])
-      .addField(":inbox_tray: -- Input", "```" + args.join(" ") + "```")
-      .addField(":outbox_tray: -- Output", "```" + output + "```");
-    message.channel.send({embed});
-    message.delete();
+    outputToChannel(message, output, safe, Discord, args);
   } catch (err) {
-    const embed = new Discord.RichEmbed()
-      .setAuthor(safe, message.author.displayAvatarURL)
-      .setColor([188, 123, 55])
-      .addField(":inbox_tray: -- Input", "```" + args.join(" ") + "```")
-      .addField(":outbox_tray: -- Output", "```" + err.message + "```");
-		message.channel.send({embed});
-    message.delete();
+    outputToChannel(message, err.message, safe, Discord, args);
   }
+}
+
+function outputToChannel(message, output, safe, Discord, args) {
+  const embed = new Discord.RichEmbed()
+    .setAuthor(safe, message.author.displayAvatarURL)
+    .setColor([188, 123, 55])
+    .addField(":inbox_tray: -- Input", "```" + args.join(" ") + "```")
+    .addField(":outbox_tray: -- Output", "```" + output + "```");
+  message.channel.send({embed});
+  message.delete();
 }
 
 exports.help = () => {

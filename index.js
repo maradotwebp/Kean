@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 const Config = require('./Config/Config.json');
 const Token = require('./Config/Token.json');
 
+
 /*
 
 // ----------------
@@ -69,13 +70,11 @@ bot.on('message', message => {
     	let commandFile = require(`./commands/${command}.js`);
     	commandFile.run(bot, message, args);
   	} catch (err) {
-  		console.error(`-- WARN -- ${err.message}`);
+  		console.error(err);
   		const embed = new Discord.RichEmbed()
-         .setAuthor(message.author.tag, message.author.displayAvatarURL)
-			   .setTitle(`:confused: >> I'm sorry, I didn't get that. Try ${Config.prefix}help.`)
-			   .setColor([188, 123, 55]);
-		  message.channel.send({embed});
-      message.delete();
+			.setDescription(`:confused: I'm sorry, I didn't get that. Try ${Config.prefix}help.`)
+			.setColor([188, 123, 55]);
+		message.channel.send({embed});
   	}
 });
 
